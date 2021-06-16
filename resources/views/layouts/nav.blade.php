@@ -13,7 +13,7 @@
             <!-- <li class="nav-item">
                 <a class="nav-link" href="#">Quản lý danh mục</a>
             </li> -->
-                <!-- <li class="nav-item dropdown">
+                <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                     Quản lý danh mục
                     </a>
@@ -38,7 +38,7 @@
                     <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                     <a class="dropdown-item" href="{{route('chapter.create')}}">Thêm Chapter</a>
                     <a class="dropdown-item" href="{{route('chapter.index')}}">Liệt kê Chapter</a>
-                </li> -->
+                </li>
 
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -48,6 +48,16 @@
                     <a class="dropdown-item" href="{{route('cauthu.create')}}">Thêm cầu thủ</a>
                     <a class="dropdown-item" href="{{route('cauthu.index')}}">Liệt cầu thủ</a>
                 </li>
+
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    Sinh vieen
+                    </a>
+                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                    <a class="dropdown-item" href="{{route('sinhvien.create')}}">Thêm sinh viên</a>
+                    <a class="dropdown-item" href="{{route('sinhvien.index')}}">Liệt kê sinh viên</a>
+                </li>
+                
 
             <!-- <li class="nav-item">
                 <a class="nav-link disabled" href="#">Disabled</a>

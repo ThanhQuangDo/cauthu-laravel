@@ -26,3 +26,4 @@ Route::resource('/danhmuc', 'DanhmucController');
 Route::resource('/truyen', 'TruyenController');
 Route::resource('/chapter', 'ChapterController');
 Route::resource('/cauthu', 'CauthuController');
+Route::resource('/sinhvien', 'SinhvienController');

@@ -7,7 +7,7 @@
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">
-                <div class="card-header">{{ __('Liệt kê Cầu thủ') }}</div>
+                <div class="card-header">{{ __('Liệt kê sinh viên ') }}</div>
 
                 <div class="card-body">
                     @if (session('status'))
@@ -20,30 +20,28 @@
                         <thead>
                             <tr>
                                 <th scope="col">ID</th>
-                                <th scope="col">Tên cầu thủ</th>
-                                <th scope="col">Tuổi</th>
-                                <th scope="col">Quốc tịch</th>
-                                <th scope="col">Vị trí</th>
-                                <th scope="col">Lương</th>
+                                <th scope="col">Tên sinh viên</th>
+                                <th scope="col">Năm sinh</th>
+                                <th scope="col">Lớp</th>
+                                <th scope="col">Quê quán</th>
                                 <th scope="col">sửa</th>
                                 <th scope="col">Xóa</th>
 
                             </tr>
                         </thead>
                         <tbody>
-                        @foreach($cauthu as $key => $ct)
+                        @foreach($sinhvien as $key => $sv)
                             <tr>
-                                <th scope="row">{{$ct->cauthu_id}}
-                                    <td>{{$ct->tencauthu}}</td>
-                                    <td>{{$ct->tuoi}}</td>
-                                    <td>{{$ct->quoctich}}</td>
-                                    <td>{{$ct->vitri}}</td>
-                                    <td>{{$ct->luong}}</td>
+                                <th scope="row">{{$sv->sinhvien_id}}
+                                    <td>{{$sv->tensinhvien}}</td>
+                                    <td>{{$sv->namsinh}}</td>
+                                    <td>{{$sv->lop}}</td>
+                                    <td>{{$sv->quequan}}</td>
                                     <td>
-                                        <a href="{{route('cauthu.edit', [$ct->cauthu_id])}}" class="btn btn-primary">Chỉnh sửa</a>
+                                        <a href="{{route('sinhvien.edit', [$sv->sinhvien_id])}}" class="btn btn-primary">Chỉnh sửa</a>
                                     </td>
                                     <td>
-                                        <form action="{{route('cauthu.destroy', [$ct->cauthu_id])}}" method="POST">
+                                        <form action="{{route('sinhvien.destroy', [$sv->sinhvien_id])}}" method="POST">
                                         @method('DELETE')
                                         @csrf
                                             <button onclick="return confirm('Bạn chắc chắn muốn xóa?');" class="btn btn-danger">Delete</button>

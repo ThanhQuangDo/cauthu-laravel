@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Cauthu;
+use App\Http\Requests\CauThu\UpdateCauThuRequest;
 
 class CauthuController extends Controller
 {
@@ -35,22 +36,20 @@ class CauthuController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
+     * @param  \Illuminate\Http\UpdateCauThuRequest  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(UpdateCauThuRequest $request)
     {
-        //
         $data = $request->validate(
             [
-                'tencauthu' => 'required|unique:cauthus|max:255',
+                'tencauthu' => 'required|max:255',
                 'tuoi' => 'required',
                 'quoctich' => 'required',
                 'vitri' => 'required',
                 'luong' => 'required',
             ]
             );
-        
         $cauthu = new Cauthu();
         $cauthu->tencauthu = $data['tencauthu'];
         $cauthu->tuoi = $data['tuoi'];
@@ -59,7 +58,7 @@ class CauthuController extends Controller
         $cauthu->luong = $data['luong'];
 
         $cauthu->save();
-        return Redirect()->back()->with('status', 'Thêm cầu thủ thành thành công');
+        return back()->with('status', 'Thêm cầu thủ thành thành công');
     }
 
     /**
@@ -125,8 +124,11 @@ class CauthuController extends Controller
      */
     public function destroy($id)
     {
-        //
-        $cauthu = Cauthu::find($id)->delete();
+        
+
+        $cauthu = Cauthu::find($id);
+        $cauthu->delete();
+        
         return Redirect()->back()->with('status', 'Xóa cầu thủ thành công');
         
     }

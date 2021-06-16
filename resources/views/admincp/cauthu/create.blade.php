@@ -36,7 +36,7 @@
 
                         <div class="form-group">
                             <label for="exampleInputtuoi">Tuổi cầu thủ</label>
-                            <input type="text" value="{{old('tencauthu')}}"  name="tuoi" class="form-control" id="exampleInputtuoi" aria-describedby="emailHelp" placeholder="Tuổi">
+                            <input type="text" value="{{old('tuoi')}}"  name="tuoi" class="form-control" id="exampleInputtuoi" aria-describedby="emailHelp" placeholder="Tuổi">
                         </div>
 
                         <div class="form-group">

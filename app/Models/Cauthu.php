@@ -7,6 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 class Cauthu extends Model
 {
     //
+    
     protected $fillable = [
         'tencauthu', 'tuoi', 'quoctich', 'vitri', 'luong'
     ];
