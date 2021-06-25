@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use Illuminate\Support\Facades\Auth;
 
 
 /*
@@ -22,8 +23,13 @@ Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 
-Route::resource('/danhmuc', 'DanhmucController');
-Route::resource('/truyen', 'TruyenController');
-Route::resource('/chapter', 'ChapterController');
 Route::resource('/cauthu', 'CauthuController');
 Route::resource('/sinhvien', 'SinhvienController');
+
+//admin
+Route::get('/admin/layouts', 'admin\DashboardController@index')->name('layouts');
+Route::get('/admin/dashboard', 'admin\DashboardController@index')->name('dashboard');
+Route::get('/admin/profile', 'admin\ProfileController@index')->name('profile');
+Route::put('/admin/profile-update/{id}', 'admin\ProfileController@update')->name('update');
+Route::resource('/admin/country', 'admin\CountryController');
+Route::resource('/admin/blog', 'admin\BlogController');
