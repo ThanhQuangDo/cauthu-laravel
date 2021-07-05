@@ -50,7 +50,7 @@
             <div class="col-lg-4 col-xlg-3 col-md-5">
                 <div class="card">
                     <div class="card-body">
-                        <center class="m-t-30"><img src="{{asset('upload/user/avatar/' . Auth::user()->avatar)  }}" class="rounded-circle" width="200" height="250">
+                        <center class="m-t-30"><img src="{{asset('upload/user/avatar/' . Auth::user()->avatar ) }}" class="rounded-circle" width="200" height="250">
                             <h4 class="card-title m-t-10">{{Auth::user()->name}}</h4>
                             <h6 class="card-subtitle">Accoubts Manager Amix corp</h6>
                             <div class="row text-center justify-content-md-center">
