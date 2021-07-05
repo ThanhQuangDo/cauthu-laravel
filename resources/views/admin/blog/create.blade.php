@@ -19,7 +19,7 @@
             </div>
         @endif
 <div>
-    <a href="{{route('country.index')}}" class="btn btn-primary">Back</a>
+    <a href="{{route('blog.index')}}" class="btn btn-primary">Back</a>
 </div>
 <div class="page-breadcrumb">
     <div class="row">

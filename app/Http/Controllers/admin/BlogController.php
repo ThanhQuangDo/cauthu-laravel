@@ -20,10 +20,12 @@ class BlogController extends Controller
     {
         //
         if(Auth::check()){
-            return view('admin.blog.index');
+            $blogs = Blog::orderBy('created_at', 'DESC')->paginate(3);
+            return view('admin.blog.index')->with('blogs', $blogs);
         }else{
             return view('auth.login');
         }
+
     }
 
     /**

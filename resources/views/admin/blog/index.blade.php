@@ -56,12 +56,12 @@
                             </tr>
                         </thead>
                         <tbody>
-                            
+                            @foreach($blogs as $key => $blog)
                             <tr>
-                                <th scope="row"></th>
-                                <td></td>
-                                <td></td>
-                                <td></td>
+                                <th scope="row">{{ $key }}</th>
+                                <td>{{ $blog->title }}</td>
+                                <td><img style="width:100%" src="{{asset('upload/user/blog_image/' . $blog->image)}}"></td>
+                                <td>{!! $blog->content !!}</td>
                                 <td>
                                     <a href="" class="btn btn-primary">Edit</a>
                                 </td>
@@ -73,6 +73,7 @@
                                     </form>
                                 </td>
                             </tr>
+                            @endforeach
                             
                         </tbody>
                         <tfoot>

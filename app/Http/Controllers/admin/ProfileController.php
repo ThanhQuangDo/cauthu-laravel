@@ -43,12 +43,7 @@ class ProfileController extends Controller
             $data['avatar'] = $imageName;  
             
         }
-        //  else {
-        //     $user = User::where('id', Auth::id())->update($request->except(['avatar']));
-        //     return back()->with('status', 'Update success');
-        // }
 
-        
         if($user->update($data)) {
             if($get_file){
                 $targetDir = 'upload/user/avatar';
