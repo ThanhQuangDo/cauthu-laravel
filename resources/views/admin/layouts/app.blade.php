@@ -83,8 +83,13 @@
     <script src="{{URL::asset('admin/assets/libs/chartist-plugin-tooltips/dist/chartist-plugin-tooltip.min.js')}}"></script>
     <script src="{{URL::asset('admin/dist/js/pages/dashboards/dashboard1.js')}}"></script>
     <!-- ckeditor -->
+    
     <script src="{{ asset('ckeditor/ckeditor.js') }}"></script>
-    <script> CKEDITOR.replace('ckeditor'); </script>
+    <script> CKEDITOR.replace('demo'); </script>
+    
+
+ 
+  
 
     
 

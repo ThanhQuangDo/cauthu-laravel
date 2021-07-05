@@ -2,6 +2,7 @@
 
 use Illuminate\Database\Seeder;
 use App\User;
+
 class UserTableSeeder extends Seeder
 {
     /**
@@ -19,4 +20,6 @@ class UserTableSeeder extends Seeder
         ];
         User::create($user);
     }
+
+    
 }

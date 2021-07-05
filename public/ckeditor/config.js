@@ -26,6 +26,19 @@ CKEDITOR.editorConfig = function( config ) {
 		{ name: 'about' }
 	];
 
+	config.filebrowserBrowseUrl = 'http://127.0.0.1:8000/ckfinder/ckfinder.html';
+ 
+	config.filebrowserImageBrowseUrl = 'http://127.0.0.1:8000/ckfinder/ckfinder.html?type=Images';
+	
+	config.filebrowserFlashBrowseUrl = 'http://127.0.0.1:8000/ckfinder/ckfinder.html?type=Flash';
+	
+	config.filebrowserUploadUrl = 'http://127.0.0.1:8000/ckfinder/core/connector/php/connector.php?command=QuickUpload&type=Files';
+	
+	config.filebrowserImageUploadUrl = 'http://127.0.0.1:8000/ckfinder/core/connector/php/connector.php?command=QuickUpload&type=Images';
+	
+	config.filebrowserFlashUploadUrl = 'http://127.0.0.1:8000/ckfinder/core/connector/php/connector.php?command=QuickUpload&type=Flash';
+
+
 	// Remove some buttons provided by the standard plugins, which are
 	// not needed in the Standard(s) toolbar.
 	config.removeButtons = 'Underline,Subscript,Superscript';

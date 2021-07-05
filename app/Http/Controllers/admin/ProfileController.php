@@ -28,37 +28,38 @@ class ProfileController extends Controller
         $user = User::findOrFail($userid);
         
         $data = $request->all();
-        
+
         if($data['password']){
             $data['password'] = bcrypt($data['password']);
         } else {
             $data['password'] = $user->password;
         }
-
+        
         $get_file = $request->avatar;
 
-        if($get_file){
-            if(file_exists(($get_file))){
-                
-            return back()->with('status', 'File exists');
-        }else{
-            $data['avatar'] = $get_file->GetClientOriginalName();
+        if ($get_file) {  
+            
+            $imageName= time() . $get_file->getClientOriginalName();       
+            $data['avatar'] = $imageName;  
+            
         }
-    }
+        //  else {
+        //     $user = User::where('id', Auth::id())->update($request->except(['avatar']));
+        //     return back()->with('status', 'Update success');
+        // }
 
-        if($user->update($data)){
         
+        if($user->update($data)) {
             if($get_file){
-                
-                $get_file->move('upload/user/avatar', $get_file->GetClientOriginalName());
-
+                $targetDir = 'upload/user/avatar';
+                $get_file->move($targetDir, $imageName); 
             }
-
             return back()->with('status', 'Update success');
-
-        }else{
+        } else{
             return back()->with('status', 'Update profile error');
-        }
-
-    }
+        }  
+        
+    }    
+    
+   
 }

@@ -5,6 +5,9 @@ namespace App\Http\Controllers\admin;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use App\Models\Blog;
+use App\Http\Requests\blog\CreateBlogRequest;
+use Illuminate\Support\Facades\Storage;
 
 class BlogController extends Controller
 {
@@ -40,9 +43,28 @@ class BlogController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(CreateBlogRequest $request)
     {
         //
+        if($request->hasFile('image')){
+            $data = $request->except(['_token','_method']);
+            
+            $image = $request->file('image');
+
+            $imageName = time() . $image->getClientOriginalName();
+               
+            $image->move('upload/user/blog_image', $imageName);
+            
+            $data['image'] = $imageName;
+            
+            Blog::create($data);
+            return back()->with('status', 'create success');
+        }
+        return back()->with('status', 'Create blog error');
+
+       
+        
+
     }
 
     /**

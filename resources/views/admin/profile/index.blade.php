@@ -10,6 +10,7 @@
                 @endforeach
             </ul>
         </div>
+        
     @endif
 
     <div class="card-body">

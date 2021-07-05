@@ -43,7 +43,7 @@
 
 <div class="card-body">
 
-<form action="{{route('blog.store')}}" method="POST">
+<form action="{{route('blog.store')}}" method="POST" enctype="multipart/form-data">
     @csrf
     <div class="form-group">
         <label for="exampleInputtt">Title</label>
@@ -55,7 +55,7 @@
     </div>
     <div class="form-group">
         <label for="exampleInputct">Content</label>
-        <textarea id="ckeditor" name="content" class="form-control" rows="8" style="resize:none"></textarea>
+        <textarea id="demo" name="content" class="form-control" rows="8" style="resize:none"></textarea>
     </div>
     <button type="submit" class="btn btn-primary">Add</button>
 </form>   
