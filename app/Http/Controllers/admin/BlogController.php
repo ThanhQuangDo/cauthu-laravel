@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use App\Models\Blog;
 use App\Http\Requests\blog\CreateBlogRequest;
+use App\Http\Requests\blog\UpdateBlogRequest;
 use Illuminate\Support\Facades\Storage;
 
 class BlogController extends Controller
@@ -63,10 +64,6 @@ class BlogController extends Controller
             return back()->with('status', 'create success');
         }
         return back()->with('status', 'Create blog error');
-
-       
-        
-
     }
 
     /**
@@ -89,6 +86,8 @@ class BlogController extends Controller
     public function edit($id)
     {
         //
+        $blog = Blog::find($id);
+        return view('admin.blog.edit')->with('blog', $blog);
     }
 
     /**
@@ -98,9 +97,39 @@ class BlogController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(UpdateBlogRequest $request, $id)
     {
         //
+        
+        $blog = Blog::findOrFail($id);
+
+        $data = $request->except(['_token','_method', 'image']);
+
+        if($request->hasFile('image')){
+            $currentImage = $blog->image;
+            // dd($currentImage);
+            $imagePath = 'upload/user/blog_image/'.$currentImage;
+
+            if(\File::delete(public_path($imagePath))){
+
+                $image = $request->file('image');
+
+                $imageName = time() . $image->getClientOriginalName();
+                   
+                $image->move('upload/user/blog_image', $imageName);
+                
+                $data['image'] = $imageName;
+                
+                Blog::where('id', $id)->update($data);
+                return back()->with('status', 'update success');
+            } else{
+                return back()->with('status', 'update error');
+            }
+            
+        } else{
+            Blog::where('id', $id)->update($data);
+            return back()->with('status', 'update success');
+        }
     }
 
     /**

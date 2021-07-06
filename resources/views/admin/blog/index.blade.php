@@ -60,10 +60,10 @@
                             <tr>
                                 <th scope="row">{{ $key }}</th>
                                 <td>{{ $blog->title }}</td>
-                                <td><img style="width:100%" src="{{asset('upload/user/blog_image/' . $blog->image)}}"></td>
+                                <td><img style="width:150px" height="200px" src="{{asset('upload/user/blog_image/' . $blog->image)}}"></td>
                                 <td>{!! $blog->content !!}</td>
                                 <td>
-                                    <a href="" class="btn btn-primary">Edit</a>
+                                    <a href="{{route('blog.edit', [$blog->id])}}" class="btn btn-primary">Edit</a>
                                 </td>
                                 <td>
                                     <form action="" method="POST">
