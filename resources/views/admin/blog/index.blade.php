@@ -66,7 +66,7 @@
                                     <a href="{{route('blog.edit', [$blog->id])}}" class="btn btn-primary">Edit</a>
                                 </td>
                                 <td>
-                                    <form action="" method="POST">
+                                    <form action="{{route('blog.destroy', [$blog->id])}}" method="POST">
                                     @method('DELETE')
                                     @csrf
                                         <button type="submit" onclick="return confirm('Bạn chắc chắn muốn xóa?');" class="btn btn-danger">Delete</button>

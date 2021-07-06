@@ -141,5 +141,7 @@ class BlogController extends Controller
     public function destroy($id)
     {
         //
+        Blog::destroy($id);
+        return back()->with('status', 'delete success');
     }
 }
